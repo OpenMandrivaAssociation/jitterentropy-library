@@ -36,7 +36,7 @@ Development files and headers for %{name}.
 
 %build
 # (tpg) using -O0 is a must here
-%global optflags %{optflags} -O0
+%global optflags %{optflags} -O0 -fPIC
 
 %make_build CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
 
