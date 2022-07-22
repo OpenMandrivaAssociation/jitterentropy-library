@@ -1,10 +1,10 @@
-%define major 2
+%define major 3
 %define libname %mklibname jitterentropy %{major}
 %define devname %mklibname jitterentropy -d
 
 Summary:	Library implementing the jitter entropy source
 Name:		jitterentropy-library
-Version:	2.2.0
+Version:	3.4.0
 Release:	1
 Group:		System/Libraries
 License:	GPLv2
@@ -32,18 +32,18 @@ Provides:	%{name}-devel = %{EVRD}
 Development files and headers for %{name}.
 
 %prep
-%autosetup -p1
+%autosetup -p0
 
 %build
 # (tpg) using -O0 is a must here
 %global optflags %{optflags} -O0 -fPIC
 
-%make_build CFLAGS="%{optflags}" LDFLAGS="%{ldflags}"
+%set_build_flags
+%make_build
 
 %install
-mkdir -p %{buildroot}%{_includedir}
-
-%make_install PREFIX=%{_prefix} LIBDIR="/%{_lib}"
+mkdir -p %{buildroot}/usr/include/
+%make_install PREFIX=/usr LIBDIR=%{_lib}
 
 %files -n %{libname}
 %{_libdir}/*jitterentropy.so.%{major}*
@@ -51,4 +51,4 @@ mkdir -p %{buildroot}%{_includedir}
 %files -n %{devname}
 %{_includedir}/*.h
 %{_libdir}/*.so
-%{_mandir}/man3/*.3.*
+%doc %{_mandir}/man3/*.3.*
