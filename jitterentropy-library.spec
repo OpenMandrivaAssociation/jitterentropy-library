@@ -4,7 +4,7 @@
 
 Summary:	Library implementing the jitter entropy source
 Name:		jitterentropy-library
-Version:	3.4.0
+Version:	3.4.1
 Release:	1
 Group:		System/Libraries
 License:	GPLv2
@@ -42,8 +42,8 @@ Development files and headers for %{name}.
 %make_build
 
 %install
-mkdir -p %{buildroot}/usr/include/
-%make_install PREFIX=/usr LIBDIR=%{_lib}
+mkdir -p %{buildroot}%{_includedir}
+%make_install PREFIX=%{_prefix} LIBDIR=%{_lib}
 
 %files -n %{libname}
 %{_libdir}/*jitterentropy.so.%{major}*
