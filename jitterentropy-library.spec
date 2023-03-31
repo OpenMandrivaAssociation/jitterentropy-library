@@ -5,7 +5,7 @@
 Summary:	Library implementing the jitter entropy source
 Name:		jitterentropy-library
 Version:	3.4.1
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	GPLv2
 Url:		https://github.com/smuellerDD/%{name}
